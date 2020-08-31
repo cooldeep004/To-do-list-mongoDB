@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <script src="https://kit.fontawesome.com/41c8fb69c7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/layout.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="inputcontent">
+
+            <h1 id ="heading">TO DO LIST</h1>
+            <form action="./create" method="POST">
+                <label for="f1" id="desp">Description</label><br>
+                <input type="text" id="f1" name="description" placeholder="text" required>
+            <div id="adjust">
+                <div id="adjust-date">
+                <label for="f2" id="date">date</label><br>
+                <input type="date" id="f2" name="date" required>
+                  </div>
+                  <div id="adjust-cat">
+                <label for="f3" id="cate">category</label><br>
+
+                <select id="f3" name="category" required>
+                    <option value="1" selected disabled>choose category</option>
+                    <option value="personal">personal</option>
+                    <option value="school">School</option>
+                    <option value="work" selected>Work</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            </div>
+                <div id="add-button">
+                    <button id="addbtn"><i class="fas fa-plus" id="plus"></i> ADD TASK
+
+                    </button>
+                </div>
+
+            </form>
+
+
+        </div>
+        <% for(let i of todoList) {%>
+        <div id="outerbox">
+            <div id="hover-div">
+
+                <input type="checkbox" value="<%= i._id%>">
+                <span id="des"><%= i.description%>
+
+                </span><br>
+                <span id="calc" class="cross3">
+                    <i class="fas fa-calendar-alt" id="calendar"></i>
+                    <%= i.date.toDateString() %>
+                </span>
+                <span id="categ">
+                    <%= i.category %>
+                </span>
+            </div>
+        </div>
+        <% } %>
+
+        <div id="delete-button-div">
+            <button id="delete-button"><i class="fas fa-trash" id="trash"></i> DELETE</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
