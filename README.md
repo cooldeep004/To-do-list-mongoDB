@@ -10,7 +10,7 @@ Navigate to Directory structure and run following commands :
 
 
 npm install
-npm start or node index.js
+npm start or nodemon index.js
 
 Basic-Features
 To add a todo enter description, categeory and due-date. (Everything is mandatory).
